@@ -35,10 +35,11 @@ def get_task(task_id):
         abort(404)
     return jsonify({'task': task[0]})
 
+#if not request.json or not 'title' in request.json:
 
-@application.route('/newtask', methods=['POST'])
+@application.route('/tasks', methods=['POST'])
 def create_task():
-    if not request.json or not 'title' in request.json:
+    if not request.json:
         abort(400)
     task = {
         'id': tasks[-1]['id'] + 1,
