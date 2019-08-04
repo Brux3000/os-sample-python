@@ -35,7 +35,12 @@ def get_task(task_id):
         abort(404)
     return jsonify({'task': task[0]})
 
-@application.route('/tasks', methods=['POST'])
+@application.errorhandler(404)
+def not_found(error):
+    return make_response(jsonify({'error': 'Not found'}), 404)
+
+
+@application.route('/masks', methods=['POST'])
 def create_task():
     if not request.json or not 'title' in request.json:
         abort(400)
@@ -48,9 +53,6 @@ def create_task():
     tasks.append(task)
     return jsonify({'task': task}), 201
 
-@application.errorhandler(404)
-def not_found(error):
-    return make_response(jsonify({'error': 'Not found'}), 404)
 
 
 if __name__ == "__main__":
