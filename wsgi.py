@@ -24,7 +24,7 @@ def hello():
     return "Hello World BRUNELLO!"
 
 
-@apppplication.route('/tasks', methods=['GET'])
+@application.route('/tasks', methods=['GET'])
 def get_tasks():
     return jsonify({'tasks': tasks})
 
