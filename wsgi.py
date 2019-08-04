@@ -39,6 +39,9 @@ def get_task(task_id):
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
+@application.route('/masks', methods=['POST'])
+def masks_task():
+    return "Mask Task  BRUNELLO!"
 
 @application.route('/tasks', methods=['POST'])
 def create_task():
@@ -51,7 +54,7 @@ def create_task():
         'done': False
     }
     tasks.append(task)
-    return jsonify({'task': task}), 201
+    return jsonify({'task': task})
 
 @application.route('/tasks/<int:task_id>', methods=['PUT'])
 def update_task(task_id):
