@@ -35,11 +35,9 @@ def get_task(task_id):
         abort(404)
     return jsonify({'task': task[0]})
 
-#if not request.json or not 'title' in request.json:
-
-@application.route('/tasks', methods=['POST'])
+@app.route('/tasks', methods=['POST'])
 def create_task():
-    if not request.json:
+    if not request.json or not 'title' in request.json:
         abort(400)
     task = {
         'id': tasks[-1]['id'] + 1,
@@ -49,7 +47,6 @@ def create_task():
     }
     tasks.append(task)
     return jsonify({'task': task}), 201
-
 
 @application.errorhandler(404)
 def not_found(error):
