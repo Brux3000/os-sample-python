@@ -45,6 +45,12 @@ def masks_task():
 
 @application.route('/tasks', methods=['POST'])
 def create_task():
+    task = {
+        'id': tasks[-1]['id'] + 1,
+        'title': "ALFA"'],
+        'description': "description"),
+        'done': False
+    }
     return "End Post Procedure"
 
 #    if not request.json or not 'title' in request.json:
