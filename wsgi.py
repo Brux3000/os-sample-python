@@ -47,8 +47,8 @@ def masks_task():
 def create_task():
     task = {
         'id': tasks[-1]['id'] + 1,
-        'title': "ALFA"'],
-        'description': "description"),
+        'title': u'Groceries',
+        'description': u'Milk_Pizza', 
         'done': False
     }
     return "End Post Procedure"
