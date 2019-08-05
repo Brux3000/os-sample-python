@@ -51,6 +51,7 @@ def create_task():
         'description': u'Milk_Pizza', 
         'done': False
     }
+    tasks.append(task)
     return "End Post Procedure"
 
 #    if not request.json or not 'title' in request.json:
