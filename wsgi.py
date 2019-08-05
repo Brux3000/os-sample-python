@@ -59,25 +59,6 @@ def create_task():
     tasks.append(task)
     return jsonify({'task': task})
 
-#    task = {
-#        'id': tasks[-1]['id'] + 1,
-#        'title': request.json['title'],
-#        'description': u'Milk_Pizza', 
-#        'done': False
-#    }
-#    tasks.append(task)
-#    return "End Post Procedure"
-#
-#    if not request.json or not 'title' in request.json:
-#         abort(400)
-#    task = {
-#        'id': tasks[-1]['id'] + 1,
-#        'title': request.json['title'],
-#        'description': request.json.get('description', ""),
-#        'done': False
-#    }
-#    tasks.append(task)
-#    return jsonify({'task': task})
 
 
 @application.route('/tasks/<int:task_id>', methods=['PUT'])
