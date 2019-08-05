@@ -48,15 +48,26 @@ def masks_task():
 
 @application.route('/tasks', methods=['POST'])
 def create_task():
+    if not request.json or not 'title' in request.json:
+         abort(400)
     task = {
         'id': tasks[-1]['id'] + 1,
         'title': request.json['title'],
-        'description': u'Milk_Pizza', 
+        'description': request.json.get('description', ""),
         'done': False
     }
     tasks.append(task)
-    return "End Post Procedure"
+    return jsonify({'task': task})
 
+#    task = {
+#        'id': tasks[-1]['id'] + 1,
+#        'title': request.json['title'],
+#        'description': u'Milk_Pizza', 
+#        'done': False
+#    }
+#    tasks.append(task)
+#    return "End Post Procedure"
+#
 #    if not request.json or not 'title' in request.json:
 #         abort(400)
 #    task = {
