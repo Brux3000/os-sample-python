@@ -24,8 +24,12 @@ tasks = [
 
 @application.route("/")
 def hello():
-    return "Hello World 20.2 BRUNELLO!"
+    return "Hello World 20.3 BRUNELLO!"
 
+
+@application.route('/masks', methods=['GET'])
+def get_masks():
+    return jsonify({'tasks': [make_public_task(task) for task in tasks]})
 
 @application.route('/tasks', methods=['GET'])
 def get_tasks():
@@ -41,10 +45,6 @@ def get_task(task_id):
 @application.errorhandler(404)
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
-
-@application.route('/masks', methods=['POST'])
-def masks_task():
-    return "Mask Task  BRUNELLO!"
 
 @application.route('/tasks', methods=['POST'])
 def create_task():
