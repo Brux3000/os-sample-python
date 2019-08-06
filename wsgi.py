@@ -24,7 +24,7 @@ tasks = [
 
 @application.route("/")
 def hello():
-    return "Hello World 20.1 BRUNELLO!"
+    return "Hello World 20.2 BRUNELLO!"
 
 
 @application.route('/tasks', methods=['GET'])
