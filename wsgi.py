@@ -4,23 +4,10 @@ from flask import abort
 from flask import make_response
 from flask import request
 
-import mysql.connector
-from mysql.connector import errorcode
+import sys
+import _mysql
 
-try:
-  cnx = mysql.connector.connect(user='brunello', password='bonanni',
-                              host='127.0.0.1',
-                              database='sampledb')
-
-except mysql.connector.Error as err:
-  if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-    print("Something is wrong with your user name or password")
-  elif err.errno == errorcode.ER_BAD_DB_ERROR:
-    print("Database does not exist")
-  else:
-    print(err)
-else:
-  cnx.close()
+import MySQLdb as mdb
 
 
 application = Flask(__name__)
