@@ -4,10 +4,12 @@ from flask import abort
 from flask import make_response
 from flask import request
 
-import sys
-import mysql.connector
+import MySQLdb
 
-import MySQLdb as mdb
+db = MySQLdb.connect(host="localhost",  # your host 
+                     user="root",       # username
+                     passwd="root",     # password
+                     db="pythonspot")   # name of the database
 
 
 application = Flask(__name__)
