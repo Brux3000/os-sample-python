@@ -5,7 +5,7 @@ from flask import make_response
 from flask import request
 
 import sys
-import mysql
+import mysql.connector
 
 import MySQLdb as mdb
 
