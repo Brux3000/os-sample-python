@@ -44,7 +44,23 @@ else:
 
 @application.route("/")
 def hello():
-    return "Hello World 40.1 BRUNELLO!"
+    # Open database connection
+    db = MySQLdb.connect("192.168.202.24","brunello","bonanni","sampledb" )
+
+    # prepare a cursor object using cursor() method
+    cursor = db.cursor()
+
+    # execute SQL query using execute() method.
+    cursor.execute("SELECT VERSION()")
+
+    # Fetch a single row using fetchone() method.
+    data = cursor.fetchone()
+    # print "Database version : %s " % data
+
+    # disconnect from server
+    db.close()
+
+    return "Hello World 40.1 BRUNELLO!" %s data
 
 
 @application.route('/masks', methods=['GET'])
