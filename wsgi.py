@@ -4,7 +4,7 @@ from flask import abort
 from flask import make_response
 from flask import request
 
-import mysql.connector
+import psycopg2
 
 
 application = Flask(__name__)
