@@ -6,6 +6,7 @@ from flask import request
 
 import MySQLdb
 import mysql.connector
+from mysql.connector import errorcode
 
 application = Flask(__name__)
 
@@ -25,9 +26,25 @@ tasks = [
 ]
 
 
+try:
+  cnx = mysql.connector.connect(user='brunello',
+                                password='bonanni',
+                                database='sampledb')
+
+except mysql.connector.Error as err:
+  if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+    print("Something is wrong with your user name or password")
+  elif err.errno == errorcode.ER_BAD_DB_ERROR:
+    print("Database does not exist")
+  else:
+    print(err)
+else:
+  cnx.close()
+
+
 @application.route("/")
 def hello():
-    return "Hello World 30.1 BRUNELLO!"
+    return "Hello World 40.1 BRUNELLO!"
 
 
 @application.route('/masks', methods=['GET'])
