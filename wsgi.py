@@ -60,7 +60,8 @@ def hello():
     # disconnect from server
     db.close()
 
-    return "Hello World 40.1 BRUNELLO!" %s data
+    # return "Hello World 40.1 BRUNELLO!" %s data
+    return data
 
 
 @application.route('/masks', methods=['GET'])
