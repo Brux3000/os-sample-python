@@ -55,7 +55,7 @@ def hello():
 
     # Fetch a single row using fetchone() method.
     data = cursor.fetchone()
-    print "Database version : %s " % data
+    # print "Database version : %s " % data
 
     # disconnect from server
     db.close()
