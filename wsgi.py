@@ -55,13 +55,12 @@ def hello():
 
     # Fetch a single row using fetchone() method.
     data = cursor.fetchone()
-    # print "Database version : %s " % data
+    print "Database version : %s " % data
 
     # disconnect from server
     db.close()
 
-    # return "Hello World 40.1 BRUNELLO!" %s data
-    return data
+    return "Hello World 40.1 BRUNELLO!"
 
 
 @application.route('/masks', methods=['GET'])
