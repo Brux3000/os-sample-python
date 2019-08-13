@@ -26,39 +26,24 @@ tasks = [
 ]
 
 
-try:
-  cnx = mysql.connector.connect(user='brunello',
-                                password='bonanni',
-                                database='sampledb')
-
-except mysql.connector.Error as err:
-  if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-    print("Something is wrong with your user name or password")
-  elif err.errno == errorcode.ER_BAD_DB_ERROR:
-    print("Database does not exist")
-  else:
-    print(err)
-else:
-  cnx.close()
 
 
 @application.route("/")
 def hello():
-    # Open database connection
-    db = MySQLdb.connect("192.168.202.24","brunello","bonanni","sampledb" )
+    cnx = mysql.connector.connect(user='brunello',
+                                  password='bonanni',
+                                  database='sampledb')
 
-    # prepare a cursor object using cursor() method
-    cursor = db.cursor()
+    except mysql.connector.Error as err:
 
-    # execute SQL query using execute() method.
-    cursor.execute("SELECT VERSION()")
-
-    # Fetch a single row using fetchone() method.
-    data = cursor.fetchone()
-    # print "Database version : %s " % data
-
-    # disconnect from server
-    db.close()
+      if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+        print("Something is wrong with your user name or password")
+      elif err.errno == errorcode.ER_BAD_DB_ERROR:
+        print("Database does not exist")
+      else:
+        print(err)
+    else:
+      cnx.close()
 
     return "Hello World 40.1 BRUNELLO!"
 
