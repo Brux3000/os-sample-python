@@ -36,7 +36,21 @@ def hello():
 
 @application.route('/masks', methods=['GET'])
 def get_masks():
-    return jsonify({'tasks': [make_public_task(task) for task in tasks]})
+    data = request.get_json()
+    conn = mdb.connect('localhost','brunello','bonanni','sampledb')
+    cur = conn.cursor()
+
+    try:
+	sql = "SELECT * from `user` WHERE `user_id` = '%s'" % (data['user_id'])
+	cur.execute(sql)
+	user = cur.fetchone()
+	return jsonify(user)
+
+    finally:
+	conn.close()
+
+    return "GET MASK 40.2 BRUNELLO!"
+
 
 @application.route('/tasks', methods=['GET'])
 def get_tasks():
