@@ -4,7 +4,7 @@ from flask import abort
 from flask import make_response
 from flask import request
 
-import MySQLdb
+import MySQLdb as mdb
 import mysql.connector
 from mysql.connector import errorcode
 
