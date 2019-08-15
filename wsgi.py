@@ -37,7 +37,7 @@ def hello():
 @application.route('/masks', methods=['GET'])
 def get_masks():
     #data = request.get_json()
-    conn = mdb.connect('localhost','brunello','bonanni','sampledb')
+    #conn = mdb.connect('localhost','brunello','bonanni','sampledb')
     #cur = conn.cursor()
 
     #try:
