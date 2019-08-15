@@ -31,7 +31,6 @@ tasks = [
 
 @application.route("/")
 def hello():
-    print("Database does")
     return "Hello World 40.1 BRUNELLO!"
 
 
@@ -41,11 +40,11 @@ def get_masks():
     conn = mdb.connect('localhost','brunello','bonanni','sampledb')
     cur = conn.cursor()
 
-    try:
-	   sql = "SELECT * from `user` WHERE `user_id` = '%s'" % (data['user_id'])
-	   cur.execute(sql)
-	   user = cur.fetchone()
-	   return jsonify(user)
+    #try:
+	   #sql = "SELECT * from `user` WHERE `user_id` = '%s'" % (data['user_id'])
+	   #cur.execute(sql)
+	   #user = cur.fetchone()
+	   #return jsonify(user)
 
     finally:
 	    conn.close()
