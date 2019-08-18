@@ -46,7 +46,7 @@ def users():
 	try:
                 conn = mdb.connect('172.17.0.10','brunello','bonanni','sampledb')
                 cursor = conn.cursor()
-		cursor.execute("SELECT * FROM user")
+		cursor.execute("SELECT * FROM `user`")
 		rows = cursor.fetchall()
 		resp = jsonify(rows)
 		resp.status_code = 200
