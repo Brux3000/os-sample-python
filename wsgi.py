@@ -41,24 +41,18 @@ def get_masks():
     return "GET MASK 40.2 BRUNELLO!"
 
 
+
 @application.route('/users')
 def users():
+	conn = mdb.connect('172.17.0.10','brunello','bonanni','sampledb')
+	cur = conn.cursor()
 	try:
-                conn = mdb.connect('172.17.0.10','brunello','bonanni','sampledb')
-                cursor = conn.cursor()
-                sql= "SELECT * FROM `user`"
-		cursor.execute(sql)
-		rows = cursor.fetchall()
-		resp = jsonify(rows)
-		resp.status_code = 200
-		return resp
-	except Exception as e:
-		print(e)
+		sql = "SELECT * from `user` "
+		cur.execute(sql)
+		user = cur.fetchone()
+		return jsonify(user)
 	finally:
-		cursor.close() 
 		conn.close()
-    
-
 
 
 
