@@ -37,11 +37,11 @@ def hello():
 @application.route('/masks', methods=['GET'])
 def get_masks():
     #data = request.get_json()
-    conn = mdb.connect('localhost','brunello','bonanni','sampledb')
+    conn = mdb.connect('172.17.0.13','brunello','bonanni','sampledb')
     #cur = conn.cursor()
 
     #try:
-	   #sql = "SELECT * from `user` WHERE `user_id` = '%s'" % (data['user_id'])
+	   #sql = "SELECT * from `user` )
 	   #cur.execute(sql)
 	   #user = cur.fetchone()
 	   #return jsonify(user)
