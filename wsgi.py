@@ -36,7 +36,7 @@ def hello():
 
 @application.route('/masks')
 def get_masks():
-    conn = mdb.connect('172.17.0.13','brunello','bonanni','sampledb')
+    conn = mdb.connect('172.17.0.10','brunello','bonanni','sampledb')
     conn.close()
     return "GET MASK 40.2 BRUNELLO!"
 
@@ -44,7 +44,7 @@ def get_masks():
 @application.route('/users')
 def users():
 	try:
-                conn = mdb.connect('172.17.0.13','brunello','bonanni','sampledb')
+                conn = mdb.connect('172.17.0.10','brunello','bonanni','sampledb')
                 cursor = conn.cursor()
 		cursor.execute("SELECT * FROM user")
 		rows = cursor.fetchall()
