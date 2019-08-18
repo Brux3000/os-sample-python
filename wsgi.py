@@ -38,16 +38,16 @@ def hello():
 def get_masks():
     #data = request.get_json()
     conn = mdb.connect('172.17.0.13','brunello','bonanni','sampledb')
-    #cur = conn.cursor()
+    cur = conn.cursor()
 
-    #try:
-	   #sql = "SELECT * from `user` )
-	   #cur.execute(sql)
-	   #user = cur.fetchone()
-	   #return jsonify(user)
+    try:
+	   sql = "SELECT * from `user`"
+	   cur.execute(sql)
+	   user = cur.fetchone()
+	   return jsonify(user)
 
-    #finally:
-	    #conn.close()
+    finally:
+	    conn.close()
 
     return "GET MASK 40.2 BRUNELLO!"
 
