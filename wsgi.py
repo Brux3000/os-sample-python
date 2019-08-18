@@ -49,7 +49,7 @@ def users():
 	try:
 		sql = "SELECT * from `customer` "
 		cur.execute(sql)
-		user = cur.fetchone()
+		user = cur.fetchall()
 		return jsonify(user)
 	finally:
 		conn.close()
