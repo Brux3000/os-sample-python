@@ -47,7 +47,7 @@ def users():
 	conn = mdb.connect('172.17.0.10','brunello','bonanni','sampledb')
 	cur = conn.cursor()
 	try:
-		sql = "SELECT * from `user` "
+		sql = "SELECT * from `customer` "
 		cur.execute(sql)
 		user = cur.fetchone()
 		return jsonify(user)
