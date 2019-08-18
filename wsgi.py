@@ -52,6 +52,28 @@ def get_masks():
     return "GET MASK 40.2 BRUNELLO!"
 
 
+@app.route('/users')
+def users():
+	try:
+                conn = mdb.connect('172.17.0.13','brunello','bonanni','sampledb')
+                cursor = conn.cursor()
+		cursor.execute("SELECT * FROM user")
+		rows = cursor.fetchall()
+		resp = jsonify(rows)
+		resp.status_code = 200
+		return resp
+	except Exception as e:
+		print(e)
+	finally:
+		cursor.close() 
+		conn.close()
+    
+
+
+
+
+
+
 @application.route('/tasks', methods=['GET'])
 def get_tasks():
     return jsonify({'tasks': tasks})
