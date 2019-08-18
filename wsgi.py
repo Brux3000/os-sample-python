@@ -52,7 +52,7 @@ def get_masks():
     return "GET MASK 40.2 BRUNELLO!"
 
 
-@app.route('/users')
+@application.route('/users')
 def users():
 	try:
                 conn = mdb.connect('172.17.0.13','brunello','bonanni','sampledb')
