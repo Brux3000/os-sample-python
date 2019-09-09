@@ -14,14 +14,14 @@ application = Flask(__name__)
 tasks = [
     {
         'id': 1,
-        'title': u'Buy Groceries',
-        'description': u'Milk, Cheese, Pizza, Fruit, Tylenol', 
+        'title': u'Buy Network',
+        'description': u'adapter, access point, wire, switch', 
         'done': False
     },
     {
         'id': 2,
         'title': u'Learn Python',
-        'description': u'Need to find a good Python tutorial on the web', 
+        'description': u'Implement Rest API with Python', 
         'done': False
     }
 ]
@@ -31,7 +31,7 @@ tasks = [
 
 @application.route("/")
 def hello():
-    return "Hello World 40.1 BRUNELLO!"
+    return "POMPEI - REST API Service 40.1 running on Openshift 3.11 developed by BRUNELLO brunello.bonanni@it.ibm.com"
 
 
 @application.route('/masks')
